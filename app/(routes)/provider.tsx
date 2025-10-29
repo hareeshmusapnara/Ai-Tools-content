@@ -3,8 +3,8 @@ import React, { useEffect } from 'react'
 import { useRouter } from 'next/navigation';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import axios from "axios";
-import AppHeader from '../_components/AppHeader';
-import { AppSidebar } from '../_components/AppSidebar';
+import AppHeader from './dashboard/_components/AppHeader';
+import { AppSidebar } from './dashboard/_components/AppSidebar';
 
 function DashboardProvider({
     children,

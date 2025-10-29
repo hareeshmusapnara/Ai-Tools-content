@@ -44,10 +44,12 @@ export function AppSidebar() {
     return (
         <Sidebar>
             <SidebarHeader>
-                <div className='p-4'>
+                
+                <div className='p-1'>
                     <Image src={'./logo.svg'} alt='logo' width={100} height={100}
                         className='w-full h-full' />
                     <h2 className='text-sm text-gray-400 text-center'>Build Awesome</h2>
+                    <hr  className='my-3 border'/>
                 </div>
             </SidebarHeader>
             <SidebarContent>
@@ -59,7 +61,7 @@ export function AppSidebar() {
                                 // <SidebarMenuItem key={item.title} className='p-2'>
                                 //     <SidebarMenuButton asChild className=''>
                                 <a href={item.url} key={index} className={`p-2 text-lg flex gap-2 items-center
-                                 hover:bg-gray-100 rounded-lg ${path.includes(item.url) && 'bg-gray-200ß'}`}>
+                                 hover:bg-blue-100 rounded-lg ${path.includes(item.url) && 'bg-gray-200ß'}`}>
                                     <item.icon className='h-5 w-5' />
                                     <span>{item.title}</span>
                                 </a>
