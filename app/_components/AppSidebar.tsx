@@ -11,7 +11,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import {  History, Home,  Inbox,  Settings,  } from "lucide-react"
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
@@ -22,20 +22,16 @@ const items = [
         icon: Home,
     },
     {
-        title: "Inbox",
+        title: "History",
+        url: "#",
+        icon: History,
+    },
+    {
+        title: "Billing",
         url: "#",
         icon: Inbox,
     },
-    {
-        title: "Calendar",
-        url: "#",
-        icon: Calendar,
-    },
-    {
-        title: "Search",
-        url: "#",
-        icon: Search,
-    },
+   
     {
         title: "Settings",
         url: "#",
@@ -75,7 +71,7 @@ export function AppSidebar() {
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter>
-                <h2 className='p-2 text-gray-400 text-sm'>Copyright @Tubeguruji</h2>
+                <h2 className='p-2 text-gray-400 text-sm'>Copyright @Harishm00007</h2>
             </SidebarFooter>
         </Sidebar>
     )

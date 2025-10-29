@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
         if (!user || !user.primaryEmailAddress?.emailAddress) {
             return NextResponse.json(
                 { error: "Unauthorized or missing email address" },
-                { status: 401 }
+                { status: 401 } 
             );
         }
 
