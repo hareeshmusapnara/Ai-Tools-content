@@ -11,7 +11,8 @@ function SearchSection({onSearchInput}:any) {
           <Search className='text-primary'/>
           <input type='text' placeholder='Search'
           onChange={(event)=>onSearchInput(event.target.value)}
-          className='bg-transparent w-full outline-none text-black'/>
+          className='bg-transparent w-full outline-none text-black'
+          suppressHydrationWarning/>
           
         </div>
       </div>

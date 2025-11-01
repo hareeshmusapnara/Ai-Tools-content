@@ -14,27 +14,28 @@ import {
 import {  History, Home,  Inbox,  Settings,  } from "lucide-react"
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { UserButton } from '@clerk/nextjs'
 
 const items = [
     {
         title: "Home",
-        url: "#",
+        url: "/dashboard",
         icon: Home,
     },
     {
         title: "History",
-        url: "#",
+        url: "/dashboard/history",
         icon: History,
     },
     {
         title: "Billing",
-        url: "#",
+        url: "/dashboard/billing",
         icon: Inbox,
     },
    
     {
         title: "Settings",
-        url: "#",
+        url: "/dashboard/settings",
         icon: Settings,
     },
 ]
@@ -46,7 +47,7 @@ export function AppSidebar() {
             <SidebarHeader>
                 
                 <div className='p-1'>
-                    <Image src={'./logo.svg'} alt='logo' width={100} height={100}
+                    <Image src={'/logo.svg.jpeg'} alt='logo' width={100} height={100}
                         className='w-full h-full' />
                     <h2 className='text-sm text-gray-400 text-center'>Build Awesome</h2>
                     <hr  className='my-3 border'/>
@@ -73,7 +74,12 @@ export function AppSidebar() {
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter>
-                <h2 className='p-2 text-gray-400 text-sm'>Copyright @Harishm00007</h2>
+                <div className='p-4 border-t'>
+                    <div className='flex items-center justify-center mb-3'>
+                        <UserButton afterSignOutUrl='/' appearance={{ elements: { avatarBox: 'w-10 h-10' } }} />
+                    </div>
+                    <h2 className='text-gray-400 text-xs text-center'>Copyright @Harishm00007</h2>
+                </div>
             </SidebarFooter>
         </Sidebar>
     )

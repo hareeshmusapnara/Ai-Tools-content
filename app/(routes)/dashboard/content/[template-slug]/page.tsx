@@ -1,19 +1,22 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, use } from 'react'
 import Templates from '@/app/(data)/Templates'
 import { TEMPLATE } from '../../_components/TemplateListSection'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
 
 interface PROPS {
-  params: {
+  params: Promise<{
     'template-slug': string
-  }
+  }>
 }
 
 function CreateNewContent(props: PROPS) {
-  const selectedTemplate: TEMPLATE | undefined = Templates?.find((item) => item.slug == props.params['template-slug'])
+  const params = use(props.params)
+  const selectedTemplate: TEMPLATE | undefined = Templates?.find((item) => item.slug == params['template-slug'])
   const [isLoading, setIsLoading] = useState(false)
   const [aiOutput, setAiOutput] = useState<string>('')
   const [analytics, setAnalytics] = useState<any>(null)
@@ -39,7 +42,10 @@ function CreateNewContent(props: PROPS) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ prompt: finalAIPrompt }),
+        body: JSON.stringify({ 
+          template: selectedTemplate?.slug,
+          input: JSON.stringify(formData)
+        }),
       })
       
       const data = await response.json()
@@ -48,12 +54,26 @@ function CreateNewContent(props: PROPS) {
       
       setAiOutput(data.result)
       setAnalytics({
-        wordCount: data.result.split(' ').length,
-        charCount: data.result.length,
+        wordCount: data.result ? data.result.split(' ').length : 0,
+        charCount: data.result ? data.result.length : 0,
         generationTime: generationTime,
         template: selectedTemplate?.name,
         timestamp: new Date().toLocaleString()
       })
+      
+      // Save to history
+      const historyItem = {
+        id: Date.now().toString(),
+        template: selectedTemplate?.name || 'Unknown',
+        input: JSON.stringify(formData),
+        output: data.result,
+        timestamp: new Date().toLocaleString()
+      }
+      
+      const existingHistory = JSON.parse(localStorage.getItem('ai-content-history') || '[]')
+      const updatedHistory = [historyItem, ...existingHistory].slice(0, 50) // Keep only last 50 items
+      localStorage.setItem('ai-content-history', JSON.stringify(updatedHistory))
+      
       setIsLoading(false)
     } catch (error) {
       console.error('Error generating content:', error)
@@ -64,6 +84,11 @@ function CreateNewContent(props: PROPS) {
 
   return (
     <div className='p-5'>
+      <Link href='/dashboard' className='flex items-center gap-2 text-gray-600 hover:text-gray-800 mb-5'>
+        <ArrowLeft className='h-4 w-4' />
+        <span>Back to Dashboard</span>
+      </Link>
+      
       {selectedTemplate && (
         <div>
           <div className='flex gap-4 items-center mb-5'>
@@ -77,7 +102,7 @@ function CreateNewContent(props: PROPS) {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-10 mt-5'>
             <div className='p-5 shadow-lg border rounded-lg bg-white'>
               <form onSubmit={GenerateAIContent}>
-                {selectedTemplate.form?.map((item, index) => (
+                {selectedTemplate.form?.filter(item => item.required).map((item, index) => (
                   <div className='my-2 flex flex-col gap-2 mb-7' key={index}>
                     <label className='font-bold'>{item.label}</label>
                     {item.field == 'input' ? (
@@ -86,6 +111,7 @@ function CreateNewContent(props: PROPS) {
                         required={item?.required}
                         onChange={handleInputChange}
                         className='h-12 text-lg'
+                        suppressHydrationWarning
                       />
                     ) : item.field == 'textarea' ? (
                       <textarea
@@ -94,18 +120,19 @@ function CreateNewContent(props: PROPS) {
                         required={item?.required}
                         onChange={handleInputChange}
                         rows={8}
+                        suppressHydrationWarning
                       />
                     ) : null}
                   </div>
                 ))}
-                <Button type="submit" className='w-full py-6 text-lg' disabled={isLoading}>
-                  {isLoading ? 'Generating...' : 'Generate Content'}
+                <Button type="submit" className='w-full py-6 text-lg' disabled={isLoading} suppressHydrationWarning>
+                  {isLoading ? `Generating ${selectedTemplate?.name}...` : `Generate ${selectedTemplate?.name}`}
                 </Button>
               </form>
             </div>
 
             <div className='p-5 border rounded-lg bg-gray-50'>
-              <h3 className='font-bold text-lg mb-3'>Generated Content:</h3>
+              <h3 className='font-bold text-lg mb-3'>{selectedTemplate?.name}:</h3>
               {isLoading ? (
                 <div className='flex items-center justify-center h-40'>
                   <div className='text-gray-500'>Generating content...</div>
