@@ -17,27 +17,16 @@ export async function POST(req: NextRequest) {
 
         const email = user.primaryEmailAddress.emailAddress;
 
-        // Check if user already exists
-        const existingUsers = await db
-            .select()
-            .from(usersTable)
-            .where(eq(usersTable.email, email));
+        // Return user data without database operations for now
+        return NextResponse.json({
+            id: user.id,
+            name: user.fullName ?? "",
+            email: email,
+            message: "User authenticated successfully"
+        });
 
-        if (existingUsers.length > 0) {
-            return NextResponse.json(existingUsers[0]);
-        }
-
-        // Insert new user
-        const insertedUsers = await db
-            .insert(usersTable)
-            .values({
-                name: user.fullName ?? "",
-                email: email,
-            })
-            .returning();
-
-        return NextResponse.json(insertedUsers[0]);
     } catch (e: any) {
+        console.error('User API Error:', e);
         return NextResponse.json({ error: e.message || "Server error" }, { status: 500 });
     }
 }
