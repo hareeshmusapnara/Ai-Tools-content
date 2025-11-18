@@ -15,43 +15,41 @@ export default function Home() {
             </div>
           </div>
           <div id="navbar-collapse-with-animation" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between sm:ps-7">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-6 flex-1 justify-center">
-                <a href="/about-us" className="flex items-center gap-2 px-3 py-1.5 text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 text-sm">
-                  <span className="text-sm">👥</span>
-                  About
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-end sm:ps-7 cursor-pointer">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                <a href="/about-us" className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-xl transform hover:scale-105">
+                  <span className="text-lg">👥</span>
+                  About Us
                 </a>
-                <a href="/terms-conditions" className="flex items-center gap-2 px-3 py-1.5 text-white bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-600 hover:to-blue-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 text-sm">
-                  <span className="text-sm">📋</span>
+                <a href="/terms-conditions" className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-600 hover:to-blue-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-xl transform hover:scale-105">
+                  <span className="text-lg">📋</span>
                   Terms
                 </a>
-                <a href="/privacy" className="flex items-center gap-2 px-3 py-1.5 text-white bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 text-sm">
-                  <span className="text-sm">🔒</span>
+                <a href="/privacy" className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-xl transform hover:scale-105">
+                  <span className="text-lg">🔒</span>
                   Privacy
                 </a>
-                <a href="/shipping" className="flex items-center gap-2 px-3 py-1.5 text-white bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 text-sm">
-                  <span className="text-sm">🚚</span>
+                <a href="/shipping" className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-xl transform hover:scale-105">
+                  <span className="text-lg">🚚</span>
                   Shipping
                 </a>
-                <a href="/cancellation-refunds" className="flex items-center gap-2 px-3 py-1.5 text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 text-sm">
-                  <span className="text-sm">💰</span>
+                <a href="/cancellation-refunds" className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-xl transform hover:scale-105">
+                  <span className="text-lg">💰</span>
                   Refunds
                 </a>
               </div>
-              <div className="cursor-pointer flex-shrink-0">
-                {!user ? (
-                  <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
-                    <button className="flex items-center gap-x-2 font-medium text-gray-500 hover:text-blue-600 sm:border-s sm:border-gray-300 py-2 sm:py-0 sm:ms-4 sm:my-6 sm:ps-6 dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-blue-500">
-                      <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-                      </svg>
-                      Get Started
-                    </button>
-                  </SignInButton>
-                ) : (
-                  <UserButton />
-                )}
-              </div>
+              {!user ? (
+                <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
+                  <button className="flex items-center gap-x-2 font-medium text-gray-500 hover:text-blue-600 sm:border-s sm:border-gray-300 py-2 sm:py-0 sm:ms-4 sm:my-6 sm:ps-6 dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-blue-500">
+                    <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                    </svg>
+                    Get Started
+                  </button>
+                </SignInButton>
+              ) : (
+                <UserButton />
+              )}
             </div>
           </div>
         </nav>
