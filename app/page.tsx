@@ -16,29 +16,29 @@ export default function Home() {
           </div>
           <div id="navbar-collapse-with-animation" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between sm:ps-7">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-                <a href="/about-us" className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-xl transform hover:scale-105">
-                  <span className="text-lg">👥</span>
-                  About Us
+              <div className="flex flex-col sm:flex-row sm:items-center gap-6 flex-1 justify-center">
+                <a href="/about-us" className="flex items-center gap-2 px-3 py-1.5 text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 text-sm">
+                  <span className="text-sm">👥</span>
+                  About
                 </a>
-                <a href="/terms-conditions" className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-600 hover:to-blue-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-xl transform hover:scale-105">
-                  <span className="text-lg">📋</span>
+                <a href="/terms-conditions" className="flex items-center gap-2 px-3 py-1.5 text-white bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-600 hover:to-blue-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 text-sm">
+                  <span className="text-sm">📋</span>
                   Terms
                 </a>
-                <a href="/privacy" className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-xl transform hover:scale-105">
-                  <span className="text-lg">🔒</span>
+                <a href="/privacy" className="flex items-center gap-2 px-3 py-1.5 text-white bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 text-sm">
+                  <span className="text-sm">🔒</span>
                   Privacy
                 </a>
-                <a href="/shipping" className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-xl transform hover:scale-105">
-                  <span className="text-lg">🚚</span>
+                <a href="/shipping" className="flex items-center gap-2 px-3 py-1.5 text-white bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 text-sm">
+                  <span className="text-sm">🚚</span>
                   Shipping
                 </a>
-                <a href="/cancellation-refunds" className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-xl transform hover:scale-105">
-                  <span className="text-lg">💰</span>
+                <a href="/cancellation-refunds" className="flex items-center gap-2 px-3 py-1.5 text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 text-sm">
+                  <span className="text-sm">💰</span>
                   Refunds
                 </a>
               </div>
-              <div className="cursor-pointer">
+              <div className="cursor-pointer flex-shrink-0">
                 {!user ? (
                   <SignInButton mode='modal' signUpForceRedirectUrl={'/dashboard'}>
                     <button className="flex items-center gap-x-2 font-medium text-gray-500 hover:text-blue-600 sm:border-s sm:border-gray-300 py-2 sm:py-0 sm:ms-4 sm:my-6 sm:ps-6 dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-blue-500">
