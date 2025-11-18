@@ -1,4 +1,4 @@
-export default function CancellationRefunds() {
+export default function AboutUs() {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,27 +9,27 @@ export default function CancellationRefunds() {
             </svg>
             Back to Home
           </a>
-          <h1 className="text-3xl font-bold text-gray-900 mb-8">Cancellation & Refunds</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-8">About Us</h1>
           
           <div className="space-y-6">
             <section>
-              <h2 className="text-xl font-semibold text-gray-800 mb-3">Cancellation Policy</h2>
+              <h2 className="text-xl font-semibold text-gray-800 mb-3">Our Mission</h2>
               <p className="text-gray-600 leading-relaxed">
-                You may cancel your subscription at any time. Cancellations will take effect at the end of your current billing period.
+                We're dedicated to revolutionizing content creation through AI technology, making it accessible and efficient for everyone.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-gray-800 mb-3">Refund Policy</h2>
+              <h2 className="text-xl font-semibold text-gray-800 mb-3">What We Do</h2>
               <p className="text-gray-600 leading-relaxed">
-                We offer a 30-day money-back guarantee for all new subscriptions. Refunds will be processed within 5-7 business days.
+                Our platform provides AI-powered tools for generating high-quality content including blogs, social media posts, and marketing materials.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-gray-800 mb-3">How to Request a Refund</h2>
+              <h2 className="text-xl font-semibold text-gray-800 mb-3">Our Vision</h2>
               <p className="text-gray-600 leading-relaxed">
-                To request a refund, please contact our support team with your account details and reason for the refund request.
+                To empower creators worldwide with intelligent tools that enhance creativity and productivity in the digital age.
               </p>
             </section>
           </div>
