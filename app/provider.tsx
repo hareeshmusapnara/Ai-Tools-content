@@ -1,8 +1,7 @@
 "use client"
 
 import { useUser } from '@clerk/nextjs';
-import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react'
+import React from 'react'
 
 
 function Provider({
@@ -12,13 +11,6 @@ function Provider({
 }>) {
 
     const { user } = useUser();
-    useEffect(() => {
-        user && createNewUser();
-    }, [user]);
-
-    const createNewUser = async () => {
-        const result = await axios.post('/api/user');
-    }
 
     return (
         <div>

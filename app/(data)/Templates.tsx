@@ -347,7 +347,49 @@ export default  [
            
         ]
     },
-
-
+    {
+        name: 'YouTube Shorts Video Generator',
+        desc: 'Generate actual YouTube Shorts videos based on your niche or description using AI video generation',
+        icon: 'https://cdn-icons-png.flaticon.com/128/1384/1384060.png',
+        category: 'Video Content',
+        slug: 'youtube-shorts-video-generator',
+        aiPrompt: 'Create a YouTube Shorts video based on the given niche and description',
+        form: [
+            {
+                label: 'Enter your niche or video topic',
+                field: 'input',
+                name: 'niche',
+                required: true
+            },
+            {
+                label: 'Enter detailed video description',
+                field: 'textarea',
+                name: 'description',
+                required: true
+            }
+        ]
+    },
+    {
+        name: 'Instagram Reels Video Generator',
+        desc: 'Create actual Instagram Reels videos tailored to your niche or description using AI video generation',
+        icon: 'https://cdn-icons-png.flaticon.com/128/2111/2111463.png',
+        category: 'Video Content',
+        slug: 'instagram-reels-video-generator',
+        aiPrompt: 'Create an Instagram Reels video based on the given niche and description',
+        form: [
+            {
+                label: 'Enter your niche or reel topic',
+                field: 'input',
+                name: 'niche',
+                required: true
+            },
+            {
+                label: 'Enter detailed video description',
+                field: 'textarea',
+                name: 'description',
+                required: true
+            }
+        ]
+    }
 
 ]
