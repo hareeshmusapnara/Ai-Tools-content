@@ -46,10 +46,16 @@ export function AppSidebar() {
         <Sidebar>
             <SidebarHeader>
                 
-                <div className='p-1'>
-                    <Image src={'/logo.svg.jpeg'} alt='logo' width={100} height={100}
-                        className='w-full h-full' />
-                    <h2 className='text-sm text-gray-400 text-center'>Build Awesome</h2>
+                <div className='p-4'>
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-2 rounded-lg">
+                            <Image src="/contentai-logo.svg" alt="ContentAI Logo" width={24} height={24} />
+                        </div>
+                        <div className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            LathorAI
+                        </div>
+                    </div>
+                    <h2 className='text-sm text-gray-400 text-center'>AI-Powered Content Creation</h2>
                     <hr  className='my-3 border'/>
                 </div>
             </SidebarHeader>
