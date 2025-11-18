@@ -48,7 +48,10 @@ export default function Home() {
                   </button>
                 </SignInButton>
               ) : (
-                <UserButton />
+                <div className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-slate-500 to-gray-600 hover:from-slate-600 hover:to-gray-700 font-medium transition-all duration-300 rounded-full shadow-md hover:shadow-xl transform hover:scale-105 sm:border-s sm:border-gray-300 sm:ms-4 sm:my-6 sm:ps-6">
+                  <span className="text-lg">👤</span>
+                  <UserButton />
+                </div>
               )}
             </div>
           </div>
